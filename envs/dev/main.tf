@@ -10,6 +10,17 @@ module "network" {
   address_space       = var.vnet_address_space
   subnets             = var.subnets
 }
+module "security" {
+  source              = "../../modules/security"
+  name_prefix         = var.name_prefix
+  resource_group_name = azurerm_resource_group.this.name
+  location            = azurerm_resource_group.this.location
+
+  subnet_ids = module.network.subnet_ids
+
+  allowed_ssh_source_cidrs = var.allowed_ssh_source_cidrs
+  tags                     = var.tags
+}
 module "monitoring" {
   source              = "../../modules/monitoring"
   location            = var.location

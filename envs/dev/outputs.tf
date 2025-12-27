@@ -10,3 +10,7 @@ output "log_analytics_workspace_id" {
   description = "The ID of the Log Analytics workspace"
   value       = module.monitoring.workspace_id
 }
+output "nsg_ids" {
+  description = "NSG IDs for dev environment"
+  value       = module.security.nsg_ids
+}
