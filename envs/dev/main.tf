@@ -10,6 +10,20 @@ module "network" {
   address_space       = var.vnet_address_space
   subnets             = var.subnets
 }
+
+module "compute" {
+  source              = "../../modules/compute"
+  name_prefix         = var.name_prefix
+  resource_group_name = azurerm_resource_group.this.name
+  location            = azurerm_resource_group.this.location
+  subnet_id           = module.network.subnet_ids["private"]
+  admin_username      = var.vm_admin_username
+  ssh_public_key      = file(var.vm_ssh_public_key_path)
+  vm_size             = var.vm_size
+  tags                = var.tags
+
+}
+
 module "security" {
   source              = "../../modules/security"
   name_prefix         = var.name_prefix
@@ -21,6 +35,16 @@ module "security" {
   allowed_ssh_source_cidrs = var.allowed_ssh_source_cidrs
   tags                     = var.tags
 }
+
+module "bastion" {
+  source              = "../../modules/bastion"
+  name_prefix         = var.name_prefix
+  resource_group_name = azurerm_resource_group.this.name
+  location            = azurerm_resource_group.this.location
+  virtual_network_id  = module.network.vnet_id
+  tags                = var.tags
+}
+
 module "monitoring" {
   source              = "../../modules/monitoring"
   location            = var.location

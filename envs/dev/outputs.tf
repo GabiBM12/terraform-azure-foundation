@@ -14,3 +14,16 @@ output "nsg_ids" {
   description = "NSG IDs for dev environment"
   value       = module.security.nsg_ids
 }
+output "vm_id" {
+  description = "Dev VM ID"
+  value       = module.compute.vm_id
+}
+
+output "vm_private_ip" {
+  description = "Dev VM private IP"
+  value       = module.compute.private_ip
+}
+output "bastion_id" {
+  description = "Bastion ID"
+  value       = module.bastion.bastion_id
+}

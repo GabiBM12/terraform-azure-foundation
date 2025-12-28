@@ -53,7 +53,9 @@ from development to production.
 │   ├── monitoring/
 │   ├── security/
 │   ├── compute/
+|   ├── bastion/
 │   └── README.md
+|   
 │
 └── README.md                     # Root documentation (this file)
 

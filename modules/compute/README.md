@@ -1,19 +1,20 @@
-# Compute Module
+# Compute Module (Private Linux VM)
 
-Deploys compute resources into the Azure foundation.
+Deploys a Linux VM intended to run in a **private subnet** (no public IP).
 
----
+## What it creates
+- Network Interface (NIC) in the provided subnet
+- Ubuntu 22.04 LTS Gen2 Linux VM (SSH key only)
 
-## Responsibilities
+## Inputs
+- `subnet_id` should be the **private subnet** for Option A
+- `ssh_public_key` should be the key **contents** (use `file()` in the environment)
 
-- Virtual Machines
-- Compute extensions
-- Monitoring agent integration
+## Outputs
+- `vm_id`
+- `nic_id`
+- `private_ip`
 
----
-
-## Design Notes
-
-- Depends on network and security modules
-- No public access by default
-- Intended to be deployed only after the security baseline is in place
+## Notes
+This module intentionally does **not** create a Public IP.
+Access is expected via Bastion (Developer SKU) or a private connectivity method.

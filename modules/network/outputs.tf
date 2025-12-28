@@ -1,4 +1,5 @@
 output "vnet_id" {
+  description = "value of the Virtual Network ID"
   value = azurerm_virtual_network.this.id
 }
 

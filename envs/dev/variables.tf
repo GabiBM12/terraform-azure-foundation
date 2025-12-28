@@ -19,3 +19,19 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
+variable "vm_admin_username" {
+  description = "Admin username for the dev VM"
+  type        = string
+  default     = "azureuser"
+}
+
+variable "vm_ssh_public_key_path" {
+  description = "Path to the SSH public key on your machine"
+  type        = string
+}
+
+variable "vm_size" {
+  description = "Dev VM size"
+  type        = string
+  default     = "Standard_B1s"
+}

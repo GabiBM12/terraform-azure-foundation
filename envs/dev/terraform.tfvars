@@ -29,6 +29,17 @@ subnets = {
 # -------------------------------
 allowed_ssh_source_cidrs = ["81.78.83.65/32"]
 
+# -------------------------------
+# VM configuration
+# -------------------------------
+vm_admin_username      = "azureuser"
+vm_ssh_public_key_path = "~/.ssh/id_ed25519.pub"
+vm_size                = "Standard_B1s"
+
+#Important: Terraform sometimes won’t expand ~ reliably on all systems.
+#If it errors, use the full path: /Users/<you>/.ssh/id_ed25519.pub
+
+
 
 # -------------------------------
 # Monitoring (optional overrides)
