@@ -73,6 +73,7 @@ cd envs/dev
 terraform init
 terraform plan
 terraform apply
+```
  
     At early stages of the project, only dev is implemented.
 stage and prod are intentionally scaffolded to reflect a
