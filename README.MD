@@ -58,6 +58,7 @@ from development to production.
 |   
 │
 └── README.md                     # Root documentation (this file)
+```
 
 Environments
 
