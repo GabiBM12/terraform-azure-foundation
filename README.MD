@@ -75,8 +75,8 @@ terraform plan
 terraform apply
 ```
  
-    At early stages of the project, only dev is implemented.
-stage and prod are intentionally scaffolded to reflect a
+At early stages of the project, only dev is implemented.
+Stage and prod are intentionally scaffolded to reflect a
 promotion-based lifecycle.
 
 Modules
