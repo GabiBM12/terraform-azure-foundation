@@ -35,3 +35,8 @@ variable "vm_size" {
   type        = string
   default     = "Standard_B1s"
 }
+
+variable "alert_email" {
+  description = "Email address to receive Azure Monitor alerts."
+  type        = string
+}

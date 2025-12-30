@@ -29,6 +29,7 @@ All modules in this repository follow these rules:
 | `compute` | Deploys compute resources |
 | `bastion` | Creates a Bastion for secure conection to the Vms |
 | `security`| Creates security layers for the enviroment |
+| `alerting`| Creates action group and alerts 
 ---
 
 ## Resource Groups
