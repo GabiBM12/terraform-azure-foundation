@@ -117,8 +117,21 @@ At this stage:
 
 ⚠️ Note: After initial deployment, VM restart may be required
 for AMA to fully apply DCR configuration.
+ 
+ 
+ 
+  Alerting Architecture
 
-    
+Alerting is built on Azure Monitor and consumes data already collected in Log Analytics
+and Azure Monitor Metrics.
+
+- **Metric alerts** are scoped directly to the Virtual Machine and used for
+  infrastructure health signals (e.g. CPU usage).
+- **Log alerts (KQL)** are scoped to the Log Analytics Workspace and used for
+  operational and security signals (e.g. SSH failures, disk usage).
+- A shared **Action Group** is used as the notification target for all alerts.
+
+This separation ensures correct evaluation context and aligns with Azure best practices.
     
     Terraform Design
 

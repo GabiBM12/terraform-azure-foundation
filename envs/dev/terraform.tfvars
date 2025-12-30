@@ -44,6 +44,7 @@ vm_size                = "Standard_B1s"
 # -------------------------------
 # Monitoring (optional overrides)
 # -------------------------------
+alert_email = "gabi.bostan1@gmail.com"
 # Uncomment later if you want to override defaults
 #
 # log_analytics_sku           = "PerGB2018"

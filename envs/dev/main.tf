@@ -54,3 +54,18 @@ module "monitoring" {
 
   workspace_name = "${var.name_prefix}-law"
 }
+module "alerting" {
+  source              = "../../modules/alerting"
+  location            = var.location
+  resource_group_name = azurerm_resource_group.this.name
+
+  email_address = var.alert_email
+
+  vm_id                      = module.compute.vm_id
+  log_analytics_workspace_id = module.monitoring.workspace_id
+
+  # optional overrides (keep defaults if you want)
+  cpu_threshold_pct       = 80
+  disk_free_threshold_pct = 15
+  computer_name_contains  = "dev-foundation"
+}

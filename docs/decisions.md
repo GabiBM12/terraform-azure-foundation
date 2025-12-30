@@ -143,6 +143,13 @@ Implement monitoring as a dedicated Terraform module.
 - Slightly more complex module interface
 
 ---
+##  8.1 Alerting Decisions
+
+- **Action Groups** are used to decouple alert rules from notification delivery.
+- **Metric alerts** are used for low-latency resource health signals.
+- **Log alerts** are used for flexible, query-based operational and security detection.
+- Alerting is implemented in a dedicated Terraform module to keep monitoring
+  ingestion and alerting concerns separate.
 
 ## 9. Remote Terraform State
 
