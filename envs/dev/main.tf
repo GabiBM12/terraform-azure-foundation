@@ -21,7 +21,7 @@ module "compute" {
   ssh_public_key      = file(var.vm_ssh_public_key_path)
   vm_size             = var.vm_size
   tags                = var.tags
-
+  dcr_id              = module.monitoring.linux_dcr_id
 }
 
 module "security" {
@@ -49,6 +49,8 @@ module "monitoring" {
   source              = "../../modules/monitoring"
   location            = var.location
   resource_group_name = azurerm_resource_group.this.name
+  bastion_id          = module.bastion.bastion_id
+  vm_id               = module.compute.vm_id
 
   workspace_name = "${var.name_prefix}-law"
 }

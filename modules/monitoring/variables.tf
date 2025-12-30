@@ -19,3 +19,11 @@ variable "retention_in_days" {
   type    = number
   default = 30
 }
+# resources to monitor 
+variable "bastion_id" {
+  type = string
+}
+
+variable "vm_id" {
+  type = string
+}

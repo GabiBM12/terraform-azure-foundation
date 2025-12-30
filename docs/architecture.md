@@ -106,8 +106,17 @@ Log Analytics Workspace
 	•	VM telemetry (via Azure Monitor Agent in later steps)
 
 At this stage:
-	•	The LAW is deployed and available
-	•	Additional diagnostic settings and agents will be added incrementally
+	-	The LAW is deployed and available
+	-	Azure Monitor Agent (AMA) installed via VM extension
+	-   Central Log Analytics Workspace
+    - 	Data Collection Rule (Linux baseline):
+    - 	Performance counters (CPU, Memory, Disk)
+    -  	Linux Syslog (auth, daemon, syslog)
+    - 	Bastion diagnostic logs forwarded to Log Analytics
+    - 	DCR associated at VM level (separation of concerns)
+
+⚠️ Note: After initial deployment, VM restart may be required
+for AMA to fully apply DCR configuration.
 
     
     
@@ -121,6 +130,7 @@ modules/
 ├── network/
 ├── bastion/
 ├── compute/
+├── security/
 └── monitoring/
 
 Each module:
