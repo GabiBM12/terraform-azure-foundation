@@ -39,6 +39,12 @@ variable "os_disk_type" {
     default = "Standard_LRS"
   
 }
+
+variable "dcr_id" {
+    description = "Data Collection Rule ID to be associated with the VM"
+    type = string
+  
+}
 variable "tags" {
     description = "Tags to be applied"
     type        = map(string)

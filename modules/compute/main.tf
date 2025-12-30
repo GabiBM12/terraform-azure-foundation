@@ -35,3 +35,21 @@ os_disk {
   }
   tags = var.tags
 }
+resource "azurerm_virtual_machine_extension" "ama_linux" {
+  name                       = "AzureMonitorLinuxAgent"
+  virtual_machine_id         = azurerm_linux_virtual_machine.this.id
+  publisher                  = "Microsoft.Azure.Monitor"
+  type                       = "AzureMonitorLinuxAgent"
+  type_handler_version       = "1.0"
+  auto_upgrade_minor_version = true
+}
+
+resource "azurerm_monitor_data_collection_rule_association" "vm" {
+  name                    = "assoc-linux-vm"
+  target_resource_id      = azurerm_linux_virtual_machine.this.id
+  data_collection_rule_id = var.dcr_id
+
+  depends_on = [
+    azurerm_virtual_machine_extension.ama_linux
+  ]
+}

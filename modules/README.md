@@ -27,7 +27,8 @@ All modules in this repository follow these rules:
 | `network` | Creates the virtual network and subnets |
 | `monitoring` | Creates the Log Analytics workspace |
 | `compute` | Deploys compute resources |
-
+| `bastion` | Creates a Bastion for secure conection to the Vms |
+| `security`| Creates security layers for the enviroment |
 ---
 
 ## Resource Groups

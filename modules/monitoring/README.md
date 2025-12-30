@@ -7,6 +7,7 @@ Creates the monitoring baseline for the Azure foundation.
 ## Resources Created
 
 - Log Analytics Workspace
+- Data Collection Rule
 
 ---
 

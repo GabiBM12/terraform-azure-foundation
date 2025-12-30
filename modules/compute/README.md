@@ -1,6 +1,8 @@
 # Compute Module (Private Linux VM)
 
 Deploys a Linux VM intended to run in a **private subnet** (no public IP).
+Azure Monitor Agent (AMA) installed as a VM extension.
+DCR Association linking VM → DCR.
 
 ## What it creates
 - Network Interface (NIC) in the provided subnet
